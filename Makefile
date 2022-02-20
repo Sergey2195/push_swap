@@ -6,7 +6,7 @@
 #    By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/02/15 12:27:24 by iannmari          #+#    #+#              #
-#    Updated: 2022/02/15 16:28:13 by iannmari         ###   ########.fr        #
+#    Updated: 2022/02/16 14:10:12 by iannmari         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,17 +28,17 @@ CC		=	gcc
 
 RM		=	rm -f
 
-FLAGS	=	
+FLAGS	=	-Wall -Werror -Wextra
 
-$(NAME_PS)	:		$(OBJS_PS) $(HEADER)
+$(NAME_PS)	:		$(OBJS_PS) $(HEADER_PS)
 	$(CC) -o $(NAME_PS) $(OBJS_PS)
 
-$(NAME_CH)	:		$(OBJS_CH) $(HEADER)
+$(NAME_CH)	:		$(OBJS_CH) $(HEADER_PS)
 	$(CC) -o $(NAME_CH) $(OBJS_CH)
 
 all			:	$(NAME_PS) $(NAME_CH)
 
-%.o			:	%.c $(HEADER)
+%.o			:	%.c $(HEADER_PS)
 	$(CC) $(FLAGS) -c $< -o $@
 
 clean		:

@@ -6,7 +6,7 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 12:02:17 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/14 20:19:12 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:17:16 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,17 @@ t_lstack	*take_last_node(t_lstack **stack)
 	while (iter_node->next)
 		iter_node = iter_node->next;
 	return (iter_node);
+}
+
+int	ft_check_zero(int num, char *str)
+{
+	if (num == 0)
+	{
+		if (str[0] == '0' && str[1] == '\0')
+			return (0);
+		else
+			return (-1);
+	}
+	else
+		return (0);
 }

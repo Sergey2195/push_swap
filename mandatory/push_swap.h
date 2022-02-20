@@ -6,7 +6,7 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 10:59:29 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/15 16:39:52 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 14:17:06 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
 
 typedef struct s_lstack{
 	int					number;
@@ -37,6 +36,7 @@ int			create_first_lstack(t_mem *mem, int argc, char **argv);
 void		free_all(t_mem *mem);
 void		mini_sorting(t_mem *mem, int argc);
 void		error_exit(t_mem *mem);
+int			ft_check_zero(int num, char *str);
 void		check_args(int argc, char **argv, t_mem *mem);
 long long	ft_atoi(const char *str);
 int			args_check(char **argv, t_lstack **stack);

@@ -6,7 +6,7 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 11:06:44 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/14 15:01:34 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 18:58:43 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,18 +64,14 @@ void	mem_cont(t_mem *mem)
 int	create_first_lstack(t_mem *mem, int argc, char **argv)
 {
 	int			i;
-	long long	value;
-	int			max_int;
-	int			min_int;
+	int			value;
 	t_lstack	*tmp;
 
-	max_int = 2147483647;
-	min_int = -2147483648;
 	i = 0;
 	while (++i < argc)
 	{
-		value = ft_atoi(argv[i]);
-		if (value > max_int || value < min_int)
+		value = (int)ft_atoi(argv[i]);
+		if (ft_check_zero(value, argv[i]) == -1)
 			return (-1);
 		tmp = create_node(value);
 		if (i == 1)

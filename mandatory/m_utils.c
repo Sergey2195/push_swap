@@ -6,7 +6,7 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 15:44:47 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/15 15:46:52 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 19:13:11 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	check_args(int argc, char **argv, t_mem *mem)
 void	error_exit(t_mem *mem)
 {
 	write(1, "Error\n", 6);
-	if (mem == NULL)
+	if (mem != NULL)
 		free_all(mem);
 	exit(EXIT_FAILURE);
 }
@@ -44,11 +44,14 @@ void	mini_sorting(t_mem *mem, int argc)
 
 void	free_all(t_mem *mem)
 {
-	while ((*mem->stack_a)->next)
+	t_lstack	*tmp;
+
+	while (*mem->stack_a)
 	{
-		(*mem->stack_a) = (*mem->stack_a)->next;
-		free((*mem->stack_a)->prev);
+		tmp = *(mem->stack_a);
+		tmp = tmp->next;
+		free(*(mem->stack_a));
+		*(mem->stack_a) = tmp;
 	}
-	free(*mem->stack_a);
 	free(mem);
 }

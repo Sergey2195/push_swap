@@ -6,16 +6,16 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:04:28 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/15 17:49:00 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 12:23:43 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
-
 # include "../mandatory/push_swap.h"
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 3
+
 char	*get_next_line(int fd);
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);

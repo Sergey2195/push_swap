@@ -6,7 +6,7 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 13:03:21 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/15 18:14:47 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:44:47 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,32 @@ int	do_opers(t_mem *mem, char *oper)
 	return (0);
 }
 
+void	free_k(t_mem *mem, char *oper)
+{
+	t_lstack	*a;
+	t_lstack	*b;
+	t_lstack	*tmp;
+
+	write(1, "KO\n", 3);
+	free(oper);
+	a = *(mem->stack_a);
+	b = *(mem->stack_b);
+	while (a)
+	{
+		tmp = a;
+		a = a->next;
+		free(tmp);
+	}
+	while (b)
+	{
+		tmp = b;
+		b = b->next;
+		free(tmp);
+	}
+	free(mem);
+	exit(EXIT_FAILURE);
+}
+
 void	get_opers(t_mem *mem)
 {
 	char	*oper;
@@ -68,6 +94,8 @@ void	get_opers(t_mem *mem)
 		oper = get_next_line(0);
 		if (oper == NULL)
 		{
+			if (*(mem->stack_a) == NULL)
+				free_k(mem, oper);
 			if (sort_check(mem->stack_a) == -1 && \
 			stack_size(mem->stack_b) == 0)
 				write(1, "OK\n", 3);
@@ -94,7 +122,6 @@ int	main(int argc, char **argv)
 	mem = NULL;
 	stack_a = NULL;
 	stack_b = NULL;
-
 	if (argc < 2)
 		exit(EXIT_FAILURE);
 	mem = malloc(sizeof(t_mem));

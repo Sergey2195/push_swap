@@ -6,7 +6,7 @@
 /*   By: iannmari <iannmari@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 14:26:37 by iannmari          #+#    #+#             */
-/*   Updated: 2022/02/15 17:11:30 by iannmari         ###   ########.fr       */
+/*   Updated: 2022/02/16 13:10:06 by iannmari         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ void	push(t_lstack **from_stack, t_lstack **to_stack)
 {
 	t_lstack	*iter_node;
 
+	iter_node = *from_stack;
 	if (iter_node == NULL)
 		return ;
-	iter_node = *from_stack;
 	if (iter_node->next)
 	{
 		*from_stack = iter_node->next;
